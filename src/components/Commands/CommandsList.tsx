@@ -1,10 +1,9 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Chip } from '@mui/material';
-import formatDate from '../utils/formatDate';
-import { STATUS_COLORS, TERMINAL_STATUSES } from '../configs/contants';
-import type { CommandStatus } from '../configs/types';
-import { useDeviceData } from '../context/DeviceDataContext';
+import formatDate from '../../utils/formatDate';
+import { STATUS_COLORS, TERMINAL_STATUSES } from '../../configs/contants';
+import { useDeviceData } from '../../context/DeviceDataContext';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { getCommands } from '../api/deviceApi';
+import { getCommands } from '../../api/deviceApi';
 
 const CommandsList = ({
     statusFilter,

@@ -1,5 +1,5 @@
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
-import { STATUS_FILTERS, type StatusFilter } from '../configs/contants';
+import { STATUS_FILTERS, type StatusFilter } from '../../configs/contants';
 
 
 interface Props {

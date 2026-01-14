@@ -5,10 +5,10 @@ import {
   Stack,
 } from "@mui/material";
 import HeaderBar from "./components/HeaderBar";
-import InfoBox from "./components/InfoBox";
 import DevicesSelector from "./components/DevicesSelector";
-import CommandsSection from "./components/CommandsSection";
 import ScheduleCommandForm from "./components/ScheduleCommandForm";
+import InfoBox from "./components/GeneralInfo/InfoBox";
+import CommandsSection from "./components/Commands/CommandsSection";
 
 export default function App() {
   return (

@@ -2,8 +2,8 @@ import { Alert, Box, CircularProgress, Divider, Grid, Paper, Stack, Typography }
 import FilterButtons from './FilterButtons';
 import CommandsList from './CommandsList';
 import { useState } from 'react';
-import type { StatusFilter } from '../configs/contants';
-import { useDeviceData } from '../context/DeviceDataContext';
+import type { StatusFilter } from '../../configs/contants';
+import { useDeviceData } from '../../context/DeviceDataContext';
 
 const CommandsSection = () => {
 

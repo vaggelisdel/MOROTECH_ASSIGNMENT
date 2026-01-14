@@ -5,7 +5,7 @@ import {
     Typography,
 } from "@mui/material";
 import InfoRow from "./InfoRow";
-import { useDeviceData } from "../context/DeviceDataContext";
+import { useDeviceData } from "../../context/DeviceDataContext";
 
 const InfoBox = () => {
     
