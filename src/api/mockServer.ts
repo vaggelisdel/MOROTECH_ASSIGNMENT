@@ -1,6 +1,11 @@
 import type { AxiosRequestConfig, AxiosResponse } from "axios";
 import type { Command, CommandStatus, CommandType, Device, NewCommandRequest } from "../configs/types";
 
+const FAILURE_RATE = 0.1;
+const FORCE_ERROR = false;
+const MIN_LATENCY_MS = 200;
+const MAX_LATENCY_MS = 800;
+
 const devices: Device[] = [
   { deviceId: "d_001" },
   { deviceId: "d_002" },
@@ -90,8 +95,12 @@ export async function handleRequest(
 
 function withLatency<T>(factory: () => Promise<T> | T): Promise<T> {
   return new Promise((resolve, reject) => {
-    const latency = 800;
+    const latency = randomBetween(MIN_LATENCY_MS, MAX_LATENCY_MS);
     setTimeout(() => {
+      if (FORCE_ERROR || Math.random() < FAILURE_RATE) {
+        reject(new Error("Mock API error"));
+        return;
+      }
       Promise.resolve(factory()).then(resolve).catch(reject);
     }, latency);
   });
@@ -131,7 +140,6 @@ function advanceCommandStatuses(commands: Command[]): void {
       command.status = "LEASED";
       command.leaseExpiresAt = new Date(now + 30_000).toISOString();
     }
-console.log(Math.random());
 
     if (command.status === "LEASED" && now - createdAt > 45_000) {
       command.status = Math.random() > 0.15 ? "COMPLETED" : "FAILED";
@@ -146,6 +154,10 @@ function sortNewestFirst(a: Command, b: Command): number {
 
 function parse<T>(value: T): T {
   return JSON.parse(JSON.stringify(value));
+}
+
+function randomBetween(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function minutesAgo(amount: number): string {
