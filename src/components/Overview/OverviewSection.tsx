@@ -7,7 +7,7 @@ import {
 import InfoRow from "./InfoRow";
 import { useDeviceData } from "../../context/DeviceDataContext";
 
-const InfoBox = () => {
+const OverviewSection = () => {
     
     const { devices, selectedDeviceId, commandsByDevice, lastUpdated } = useDeviceData();
 
@@ -34,4 +34,4 @@ const InfoBox = () => {
     );
 };
 
-export default InfoBox;
+export default OverviewSection;

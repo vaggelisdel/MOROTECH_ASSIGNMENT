@@ -7,7 +7,7 @@ import {
 import HeaderBar from "./components/HeaderBar";
 import DevicesSelector from "./components/DevicesSelector";
 import ScheduleCommandForm from "./components/ScheduleCommandForm";
-import InfoBox from "./components/GeneralInfo/InfoBox";
+import OverviewSection from "./components/Overview/OverviewSection";
 import CommandsSection from "./components/Commands/CommandsSection";
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
         <HeaderBar />
         <Container maxWidth="lg" sx={{ py: 4 }}>
           <Stack spacing={3}>
-            <InfoBox />
+            <OverviewSection />
             <DevicesSelector />
             <Grid container spacing={3}>
               <CommandsSection />
