@@ -76,8 +76,12 @@ Behavior:
 
 ### What I would improve with more time
 - Optimistic UI updates with rollback on error.
+- Add user authentication and audit metadata so commands record who scheduled them.
+- Realtime updates via WebSockets/Firebase Realtime DB/MQTT instead of polling.
+- Analytics dashboards for command schedules and device activity.
 - Unit/e2e tests for polling and scheduling flows.
 - Routing for device/command detail views.
+- Creating a simple nodejs backend mechanism in seperate container to communicate internally to our frontend app.
 
 ### AI assistance
 - Used AI for polling strategy (Avoid overlapping requests), and mock API structure and beautify the final readme markdown file.
